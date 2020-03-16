@@ -24,14 +24,13 @@ import UIKit
 import Photos
 
 
-fileprivate let localizedDone = Bundle(identifier: "com.apple.UIKit")?.localizedString(forKey: "Done", value: "Done", table: "") ?? "Done"
-
 // MARK: ImagePickerController
 open class ImagePickerController: UINavigationController {
     // MARK: Public properties
+    public static var localizedDone = Bundle(identifier: "com.apple.UIKit")?.localizedString(forKey: "Done", value: "Done", table: "") ?? "Done"
     public weak var imagePickerDelegate: ImagePickerControllerDelegate?
     public var settings: Settings = Settings()
-    public var doneButton: UIBarButtonItem = UIBarButtonItem(title: localizedDone, style: .done, target: nil, action: nil)
+    public var doneButton: UIBarButtonItem = UIBarButtonItem(title: ImagePickerController.localizedDone, style: .done, target: nil, action: nil)
     public var cancelButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: nil, action: nil)
     public var albumButton: UIButton = UIButton(type: .custom)
     public var assetStore: AssetStore = AssetStore(assets: [])
@@ -138,7 +137,7 @@ open class ImagePickerController: UINavigationController {
     }
 
     func updatedDoneButton() {
-        doneButton.title = assetStore.count > 0 ? localizedDone + " (\(assetStore.count))" : localizedDone
+        doneButton.title = assetStore.count > 0 ? ImagePickerController.localizedDone + " (\(assetStore.count))" : ImagePickerController.localizedDone
       
         doneButton.isEnabled = assetStore.count >= settings.selection.min
     }

@@ -90,6 +90,7 @@ class PreviewViewController : UIViewController {
         }
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
+        scrollView.backgroundColor = .init(red: 34.0 / 255, green: 34.0 / 255, blue: 34.0 / 255, alpha: 1)
         view.addSubview(scrollView)
     }
 
@@ -170,13 +171,8 @@ class PreviewViewController : UIViewController {
     
     private func updateBackgroundColor() {
         let aColor: UIColor
-        
-        if self.fullscreen && modalPresentationStyle == .fullScreen {
-            aColor = UIColor.black
-        } else {
-            aColor = UIColor.white
-        }
-        
+
+        aColor = UIColor.black
         view.backgroundColor = aColor
     }
     
