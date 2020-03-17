@@ -34,6 +34,9 @@ open class ImagePickerController: UINavigationController {
     public var cancelButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: nil, action: nil)
     public var albumButton: UIButton = UIButton(type: .custom)
     public var assetStore: AssetStore = AssetStore(assets: [])
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 
     // MARK: Internal properties
     var onSelection: ((_ asset: PHAsset) -> Void)?

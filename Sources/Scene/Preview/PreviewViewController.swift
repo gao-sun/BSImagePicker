@@ -27,6 +27,9 @@ import CoreLocation
 class PreviewViewController : UIViewController {
     private let imageManager = PHCachingImageManager.default()
     var settings: Settings!
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 
     var asset: PHAsset? {
         didSet {
